@@ -34,7 +34,6 @@ def slot_machine(quaters_left: int, machine_1_attempts_made, machine_2_attempts_
     attempts_to_win_2 = 100 - machine_2_attempts_made
     attempts_to_win_3 = 10 - machine_3_attempts_made
     plays = 0
-    # import ipdb; ipdb.set_trace()
     while quaters_left:
         attempts_to_win_1 -= 1
         quaters_left -= 1
