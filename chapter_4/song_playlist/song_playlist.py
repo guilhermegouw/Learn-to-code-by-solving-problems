@@ -17,9 +17,6 @@ Button 3: Swaps the ﬁrst two songs of the playlist.
 For example, if the playlist is currently A, B, C, D, E, then it changes to 
 be B, A, C, D, E.
 
-Button 4: Plays the playlist! We’re provided a user’s button presses. 
-When the user presses button 4, output the order of songs in the playlist.
-
 Input
 
 The input consists of pairs of lines, where the ﬁrst line of a pair gives the 
@@ -30,11 +27,11 @@ pressed, the third line is the number of a button, the fourth line is the number
 of times it is pressed, and so on.
 
 The input ends with these two lines:
-4
+3
 1
 
 indicating that the user pressed button
-4
+3
 once.
 
 Output
@@ -42,8 +39,6 @@ Output
 Output the order of songs in the playlist after all button presses. 
 The output must be on one line, with a space separating each pair of songs.
 '''
-import string
-
 
 def playlist(moves: list[str]) -> str:
     playlist = 'ABCDE'
@@ -51,7 +46,12 @@ def playlist(moves: list[str]) -> str:
         button = move[0]
         times_pressed = int(move[1])
         if button == '1':
-            for i in range(times_pressed):
-                first_song = playlist[0]
-                playlist = playlist[1:] + first_song
+            for _ in range(times_pressed):
+                playlist = playlist[1:] + playlist[0]
+        if button == '2':
+            for _ in range(times_pressed):
+                playlist = playlist[-1] + playlist[:4]
+        if button == '3':
+            for _ in range(times_pressed):
+                playlist = playlist[1] + playlist[0] + playlist[2:]
     return playlist
