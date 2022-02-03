@@ -38,8 +38,3 @@ def lukas_decoder(msg):
         if letter in vowels:
             msg = msg[:count] + msg[count + 2:]
     return msg
-
-
-if __name__=='__main__':
-    print(lukas_encoder('i like you'))
-    print(lukas_decoder('ipi lipikepe yopoupu'))
