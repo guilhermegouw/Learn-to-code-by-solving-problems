@@ -3,7 +3,7 @@ from .secret_sentence import lukas_decoder
 
 def test_lukas_decoder():
     output = lukas_decoder('ipi lipikepe yopoupu.')
-    assert output == 'i like you'
+    assert output == 'i like you.'
 
 
 def test_lukas_decoder_single_consoant():

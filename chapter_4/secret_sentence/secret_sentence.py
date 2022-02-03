@@ -22,9 +22,24 @@ Output
 Output Luka’s original sentence.
 """
 
-def lukas_decoder(encoded_phrase):
+def lukas_encoder(msg):
     vowels = ['a', 'e', 'i', 'o', 'u']
-    for letter in encoded_phrase:
+    encoded_phrase = ''
+    for letter in msg:
         if letter in vowels:
-            pass
+            encoded_phrase += f'{letter}p{letter}'
+        else:
+            encoded_phrase += letter
     return encoded_phrase
+
+def lukas_decoder(msg):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    for count, letter in enumerate(msg, 1):
+        if letter in vowels:
+            msg = msg[:count] + msg[count + 2:]
+    return msg
+
+
+if __name__=='__main__':
+    print(lukas_encoder('i like you'))
+    print(lukas_decoder('ipi lipikepe yopoupu'))
